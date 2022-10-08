@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk.Worker">
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
@@ -15,13 +15,27 @@
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
       <PackageReference Include="Microsoft.Orleans.OrleansProviders" Version="3.6.5" />
-      <PackageReference Include="NodaTime" Version="3.1.2" />
       <PackageReference Include="NodaTime.Serialization.SystemTextJson" Version="1.0.0" />
       <PackageReference Include="WebsocketClientLite.PCL" Version="7.3.0" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\OrleansTest.ScoreSaber.Common\OrleansTest.ScoreSaber.Common.csproj" />
+      <ProjectReference Include="..\OrleansTest.Models\OrleansTest.Models.csproj" />
+      <ProjectReference Include="..\OrleansTest.Orleans.Common\OrleansTest.Orleans.Common.csproj" />
+      <ProjectReference Include="..\OrleansTest.Orleans.Contracts\OrleansTest.Orleans.Contracts.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Orleans_CodeGenInputs Remove="Models\ThirdParty\ScoreSaber\Scores\Hmd.cs" />
+      <Orleans_CodeGenInputs Remove="Models\ThirdParty\ScoreSaber\Scores\LeaderboardDifficulty.cs" />
+      <Orleans_CodeGenInputs Remove="Models\ThirdParty\ScoreSaber\Scores\LeaderboardInfo.cs" />
+      <Orleans_CodeGenInputs Remove="Models\ThirdParty\ScoreSaber\Scores\LeaderboardPlayer.cs" />
+      <Orleans_CodeGenInputs Remove="Models\ThirdParty\ScoreSaber\Scores\PlayerScore.cs" />
+      <Orleans_CodeGenInputs Remove="Models\ThirdParty\ScoreSaber\Scores\Score.cs" />
+      <Orleans_CodeGenInputs Remove="Models\ThirdParty\ScoreSaber\Shared\PlayerInfoBase.cs" />
+      <Orleans_CodeGenInputs Remove="Models\ThirdParty\ScoreSaber\Websocket\Command.cs" />
+      <Orleans_CodeGenInputs Remove="Models\ThirdParty\ScoreSaber\Websocket\ScoreCommand.cs" />
+      <Orleans_CodeGenInputs Remove="Models\ThirdParty\Shared\Difficulty.cs" />
     </ItemGroup>
 
 </Project>
